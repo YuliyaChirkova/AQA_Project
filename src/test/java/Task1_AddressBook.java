@@ -6,7 +6,7 @@ import org.openqa.selenium.support.ui.Select;
 
 import java.time.Duration;
 
-public class AddAddress {
+public class Task1_AddressBook {
 
     public static void main(String[] args) {
         System.setProperty("webdriver.chrome.driver", "C:\\Webdriver\\chromedriver.exe");
