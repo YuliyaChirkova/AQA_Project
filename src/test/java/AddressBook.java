@@ -42,6 +42,7 @@ public class AddressBook {
         radioUS.click();
 
         driver.findElement(By.id("address_birthday")).sendKeys("09091999");
+        driver.findElement(By.id("address_color")).sendKeys("#FFFF00");
         driver.findElement(By.id("address_age")).sendKeys("30");
         driver.findElement(By.id("address_website")).sendKeys("http://www.eee.eu");
         driver.findElement(By.id("address_picture")).sendKeys("D:\\LA_foto.jpg");
