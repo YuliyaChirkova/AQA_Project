@@ -2,43 +2,17 @@ package tests;
 
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
-
 import java.io.File;
-//import java.sql.Driver;
-import java.time.Duration;
 import java.util.List;
-import utils.Driver;
+
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-
-
-public class AddressBook {
+public class AddressBook extends BeforeAll_AfterAll{
 
     private static final String PICTURE = new File("src/main/resources/LA_foto.jpg").getAbsolutePath();
-
-    private WebDriver driver = Driver.getChromeDriver();
-
-
-
-        @BeforeAll
-        void SetUp(){
-            driver.get("http://a.testaddressbook.com/sign_in");
-            String currentURL = driver.getCurrentUrl();
-            Assertions.assertEquals("http://a.testaddressbook.com/sign_in", currentURL, "The incorrect page is open or invalid URL is specified");
-        }
-
-        @AfterEach
-        void afterEach(TestInfo testInfo) {
-            if (testInfo.getTags().contains("SkipClick")) {
-                return;
-            }
-            driver.findElement(By.cssSelector("a[data-test='addresses']")).click();
-        }
 
 
     @Order(1)
@@ -57,6 +31,7 @@ public class AddressBook {
 
         @Order(2)
         @Test
+        @DisplayName("Testing of adding address")
         void AddAddress() {
         driver.findElement(By.cssSelector("a[data-test='addresses']")).click();
         driver.findElement(By.cssSelector("a[data-test='create']")).click();
@@ -88,13 +63,13 @@ public class AddressBook {
             String elementTitle = success.getText();
             Assertions.assertTrue("Address was successfully created.".contains(elementTitle));
 
-         //driver.findElement(By.cssSelector("a[data-test='addresses']")).click();
     }
 
 
 
         @Order(3)
         @Test
+        @DisplayName("Testing of editing address")
         void EditAddress() {
             driver.findElement(By.xpath("//a[text()='Edit'][1]")).click();
             driver.findElement(By.id("address_city")).clear();
@@ -106,12 +81,13 @@ public class AddressBook {
             WebElement success = driver.findElement(By.cssSelector(".alert.alert-notice"));
             String elementTitle = success.getText();
             Assertions.assertTrue("Address was successfully updated.".contains(elementTitle));
-            //driver.findElement(By.cssSelector("a[data-test='addresses']")).click();
+
         }
 
         @Order(4)
         @Test
         @Tag("SkipClick")
+        @DisplayName("Testing of deleting an address")
         void DeleteAddress() {
         List<WebElement> listOfElements = driver.findElements(By.xpath("//a[text()='Destroy']"));
 
@@ -130,7 +106,8 @@ public class AddressBook {
         @Order(5)
         @Test
         @Tag("SkipClick")
-        //@Disabled
+        @DisplayName("Testing of Sign out")
+        @Disabled
         void SignOut() {
         driver.findElement(By.xpath("//a[text()='Sign out']")).click();
         String currentURL = driver.getCurrentUrl();
@@ -138,10 +115,6 @@ public class AddressBook {
 
         }
 
-      /* @AfterAll
-        void tearDown() {
-            driver.quit();
 
-        }*/
     }
 
