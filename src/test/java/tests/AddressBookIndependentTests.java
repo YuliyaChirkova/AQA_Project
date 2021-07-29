@@ -15,7 +15,7 @@ import java.util.List;
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 @TestInstance(TestInstance.Lifecycle.PER_METHOD)
 
-public class AddressBookIndependenceTests {
+public class AddressBookIndependentTests {
 
     private static final String PICTURE = new File("src/main/resources/LA_foto.jpg").getAbsolutePath();
 
