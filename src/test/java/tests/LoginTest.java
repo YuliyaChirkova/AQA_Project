@@ -12,11 +12,10 @@ import utils.Driver;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class LoginTest extends BeforeAll_AfterAll{
-    private WebDriver driver = Driver.getChromeDriver();
+  //  private WebDriver driver = Driver.getChromeDriver();
 
 
     public void getLogin() {
-
         driver.findElement(By.id("session_email")).sendKeys("www@www.qqq");
         driver.findElement(By.name("session[password]")).sendKeys("123QWE");
         driver.findElement(By.cssSelector("input[value='Sign in']")).click();
@@ -38,9 +37,6 @@ public class LoginTest extends BeforeAll_AfterAll{
         Assertions.assertEquals("Address Book", title, "The incorrect page is open or invalid title is specified");
         driver.findElement(By.xpath("//a[text()='Sign out']")).click();
 
-       /*  Вопрос: Я здесь добавила нажатие
-         на кнопку Sign out, чтобы запускался тест со вторым набором логина и пароля.
-         Я правильно сделала или здесь нужно как-то по-другому действовать?*/
     }
 
 
