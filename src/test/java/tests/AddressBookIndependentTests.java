@@ -13,8 +13,6 @@ import java.util.List;
 
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-@TestInstance(TestInstance.Lifecycle.PER_METHOD)
-
 public class AddressBookIndependentTests {
 
     private static final String PICTURE = new File("src/main/resources/LA_foto.jpg").getAbsolutePath();
@@ -32,6 +30,7 @@ public class AddressBookIndependentTests {
         driver.quit();
 
     }
+
 
     @Order(1)
     @Test
@@ -146,7 +145,7 @@ public class AddressBookIndependentTests {
     @DisplayName("Testing of Sign out")
    // @Disabled
     void SignOut() {
-         driver.findElement(By.id("session_email")).sendKeys("www@www.qqq");
+        driver.findElement(By.id("session_email")).sendKeys("www@www.qqq");
         driver.findElement(By.name("session[password]")).sendKeys("123QWE");
         driver.findElement(By.cssSelector("input[value='Sign in']")).click();
 

@@ -10,10 +10,9 @@ import java.util.List;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-public class AddressBook extends BeforeAll_AfterAll{
+public class AddressBook extends BeforeAll_AfterAll {
 
     private static final String PICTURE = new File("src/main/resources/LA_foto.jpg").getAbsolutePath();
-
 
     @Order(1)
     @Test
@@ -62,6 +61,7 @@ public class AddressBook extends BeforeAll_AfterAll{
             WebElement success = driver.findElement(By.cssSelector(".alert.alert-notice"));
             String elementTitle = success.getText();
             Assertions.assertTrue("Address was successfully created.".contains(elementTitle));
+
 
     }
 

@@ -17,7 +17,6 @@ public class Driver {
     public static WebDriver getChromeDriver(){
         initializeChromeDriver();
         driver = new ChromeDriver();
-
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(40));
         return driver;
     }
