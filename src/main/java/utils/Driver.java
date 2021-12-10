@@ -11,7 +11,7 @@ public class Driver {
     private static WebDriver driver;
 
     private static void initializeChromeDriver() {
-        System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver2.exe");
+        System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
     }
 
     public static WebDriver getChromeDriver(){
